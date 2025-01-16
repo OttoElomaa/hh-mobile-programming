@@ -4,9 +4,11 @@ import MyButton from "./MyButton";
 import { useState } from 'react';
 import MyGenericButton from './MyGenericButton';
 import styles from '../styles/Styles'
+import CalcHistory from './CalcHistory';
 
 
-export default function Calculator() {
+// navigation prop is passed in to every screen component in stack navigator
+export default function Calculator({ navigation }) {
 
 
 	// STATES, SETTERS
@@ -68,6 +70,10 @@ export default function Calculator() {
 		}]);
 	};
 
+	const navigateToHistory = () => {
+		navigation.navigate("History", { resultsList })
+	}
+
 
 
 
@@ -77,12 +83,16 @@ export default function Calculator() {
 
 
 
-	
+
 
 
 	return (
 		<View style={styles.container}>
 
+			<MyGenericButton
+				function={navigateToHistory}
+				text="History"
+			/>
 
 			<Text style={styles.myHeader}>OTTO'S CALCULATOR APP</Text>
 
@@ -125,13 +135,17 @@ export default function Calculator() {
 			<Text style={styles.myHeader}>Result:</Text>
 			<Text style={styles.myHeader}>{result}</Text>
 
-			<FlatList style={{maxHeight:200}}
+
+
+			{/* 	<FlatList style={{ maxHeight: 200 }}
 				data={resultsList}
 				renderItem={({ item }) =>
 					<Text>
 						{item.firstNum} {item.operator} {item.secondNum} = {item.result}
 					</Text>}
-			/>
+			/> */}
+
+
 
 			<StatusBar style="auto" />
 

@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
 		backgroundColor: '#fff', // Background color for input
 	},
 
-	padding1: {
+	margin1: {
 		marginHorizontal: 5, // Vertical padding
 		marginVertical: 0, // Horizontal padding
 	},
@@ -45,12 +45,19 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 20,
 		justifyContent: 'center',
 		alignItems: 'center',
-		flex:1
 	},
 	buttonText: {
 		color: 'white',
 		fontSize: 22,
 		fontWeight: "bold"
+	},
+	listItem: {
+		borderRadius: 25,
+		paddingVertical: 10,
+		paddingHorizontal: 20,
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: "#f0f0f0"
 	},
 });
 

@@ -8,17 +8,20 @@ import RandomNonsense from './components/RandomNonsense';
 import Calculator from "./components/Calculator"
 
 import styles from './styles/Styles'
+import CalcHistory from './components/CalcHistory';
 
 
 export default function App() {
 
+	const Stack = createNativeStackNavigator();
 
 
-  return(
-    <SafeAreaView style={styles.container}>
-      
-      <Calculator/>
-      
-    </SafeAreaView>
-    )
+	return (
+		<NavigationContainer>
+			<Stack.Navigator>
+				<Stack.Screen name="Calculator" component={Calculator} />
+				<Stack.Screen name="History" component={CalcHistory} />
+			</Stack.Navigator>
+		</NavigationContainer>
+	)
 }

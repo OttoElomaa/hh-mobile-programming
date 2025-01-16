@@ -16,7 +16,7 @@ export default function MyGenericButton(props) {
 			style={
 				({ pressed }) =>
 					[
-						styles.button, styles.padding1,
+						styles.button, styles.margin1,
 						{ backgroundColor: pressed ? 'darkred' : 'orange' },
 					]}
 			onPress={props.function}
