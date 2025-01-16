@@ -1,35 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { Alert, Button, StyleSheet, Text, View, TextInput } from 'react-native';
-import MyButton from "./components/MyButton";
 import { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import RandomNonsense from './components/RandomNonsense';
 import Calculator from "./components/Calculator"
+
+import styles from './styles/Styles'
 
 
 export default function App() {
 
-
-  const styles = StyleSheet.create({
-	  container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'space-evenly',
-  
-		// Column is default
-		flexDirection: "column"
-	  },
-  
-	  myHeader: {
-		fontSize: 30,
-		color: "orange",
-	  },
-  
-	  myTextInput: {
-  
-	  }
-	});
 
 
   return(

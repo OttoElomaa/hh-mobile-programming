@@ -3,6 +3,7 @@ import { Alert, Button, StyleSheet, Text, View, TextInput, FlatList } from 'reac
 import MyButton from "./MyButton";
 import { useState } from 'react';
 import MyGenericButton from './MyGenericButton';
+import styles from '../styles/Styles'
 
 
 export default function Calculator() {
@@ -76,85 +77,65 @@ export default function Calculator() {
 
 
 
-	const styles = StyleSheet.create({
-		container: {
-			flex: 1,
-			backgroundColor: '#fff',
-			alignItems: 'center',
-			justifyContent: 'space-evenly',
-
-			// Column is default
-			flexDirection: "column"
-		},
-		row: { flexDirection: "row" },
-
-		myHeader: {
-			fontSize: 20,
-			color: "blue",
-		},
-
-		myTextInput: {
-		},
-
-		block1: { flex: 1, justifyContent: 'space-evenly', alignItems: 'center' },
-		block2: { flex: 2, justifyContent: 'space-evenly', alignItems: 'center' }
-	});
+	
 
 
 	return (
 		<View style={styles.container}>
-			<View style={styles.block2}>
 
-				<Text style={styles.myHeader}>OTTO'S CALCULATOR APP</Text>
 
-				<TextInput
-					placeholder="First number"
-					value={firstNum}
-					onChangeText={firstNum => setFirstNum(firstNum)}
-					keyboardType="numeric"
+			<Text style={styles.myHeader}>OTTO'S CALCULATOR APP</Text>
+
+			<TextInput style={styles.myInputField}
+				placeholder="First number"
+				value={firstNum}
+				onChangeText={firstNum => setFirstNum(firstNum)}
+				keyboardType="numeric"
+			/>
+			<TextInput style={styles.myInputField}
+				placeholder="Second number"
+				value={secondNum}
+				onChangeText={secondNum => setSecondNum(secondNum)}
+				keyboardType="numeric"
+			/>
+
+			<View style={styles.row}>
+				<MyGenericButton
+					function={calcAdd}
+					text="  +  "
 				/>
-				<TextInput
-					placeholder="Second number"
-					value={secondNum}
-					onChangeText={secondNum => setSecondNum(secondNum)}
-					keyboardType="numeric"
+				<MyGenericButton
+					function={calcSubstract}
+					text="  -  "
 				/>
-
-				<View style={styles.row}>
-					<MyGenericButton
-						function={calcAdd}
-						text="  +  "
-					/>
-					<MyGenericButton
-						function={calcSubstract}
-						text="  -  "
-					/>
-				</View>
-
-				<View style={styles.row}>
-					<MyGenericButton
-						function={calcMultiply}
-						text="  *  "
-					/>
-					<MyGenericButton
-						function={calcDivide}
-						text="  /  "
-					/>
-				</View>
-
-
-				<Text style={styles.myHeader}>Result:</Text>
-				<Text style={styles.myHeader}>{result}</Text>
-
-				<FlatList
-					data={resultsList}
-					renderItem={({ item }) => <Text>{item.firstNum} {item.operator} {item.secondNum} = {item.result}</Text>}
-				/>
-
-				<StatusBar style="auto" />
-
 			</View>
-			<View style={styles.block1}></View>
+
+			<View style={styles.row}>
+				<MyGenericButton
+					function={calcMultiply}
+					text="  *  "
+				/>
+				<MyGenericButton
+					function={calcDivide}
+					text="  /  "
+				/>
+			</View>
+
+
+			<Text style={styles.myHeader}>Result:</Text>
+			<Text style={styles.myHeader}>{result}</Text>
+
+			<FlatList style={{maxHeight:200}}
+				data={resultsList}
+				renderItem={({ item }) =>
+					<Text>
+						{item.firstNum} {item.operator} {item.secondNum} = {item.result}
+					</Text>}
+			/>
+
+			<StatusBar style="auto" />
+
+
 		</View>
 
 	);
