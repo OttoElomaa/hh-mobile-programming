@@ -27,8 +27,6 @@ export default function Calculator({ navigation }) {
 		function: ''
 	}])
 
-
-
 	const calcAdd = () => {
 		setResult(Number(firstNum) + Number(secondNum))
 		setResultsList(list => [...list, {

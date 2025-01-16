@@ -36,8 +36,7 @@ const styles = StyleSheet.create({
 		marginVertical: 0, // Horizontal padding
 	},
 
-	block1: { flex: 1, justifyContent: 'space-evenly', alignItems: 'center' },
-	block2: { flex: 2, justifyContent: 'space-evenly', alignItems: 'center' },
+	flexItem1:{flex:1},
 
 	button: {
 		borderRadius: 25,
