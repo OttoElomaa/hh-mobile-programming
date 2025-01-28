@@ -8,7 +8,7 @@ import MyGenericButton from "./MyGenericButton";
 export default function FetchFoods({ navigation }) {
 
 
-	useEffect(() => getFoods(), [])
+	//useEffect(() => getFoods(), [])
 
 	const [foods, setFoods] = useState([])
 	const [searchTerm, setSearchTerm] = useState("")

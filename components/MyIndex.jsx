@@ -22,6 +22,10 @@ export default function MyIndex({ navigation }) {
 			<MyGenericButton
 				function={() => buttonPressed("Foods")}
 				text="Search Recipes" />
+
+			<MyGenericButton
+				function={() => buttonPressed("MoneyRates")}
+				text="Exchange Rates App" />
 		</View>
 	)
 
