@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { Alert, Button, StyleSheet, Text, View, TextInput, FlatList } from 'react-native';
-import MyButton from "./MyButton";
+
 import { useState } from 'react';
 import MyGenericButton from './MyGenericButton';
 import styles from '../styles/Styles'
