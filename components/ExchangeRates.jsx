@@ -2,6 +2,7 @@ import { FlatList, Text, View } from "react-native";
 import styles from '../styles/Styles'
 import { useEffect, useState } from "react";
 import MyGenericButton from "./MyGenericButton";
+import { Picker, Item } from '@react-native-picker/picker';
 
 export default function ExchangeRates({ navigation }) {
 
@@ -11,7 +12,7 @@ export default function ExchangeRates({ navigation }) {
 
 	const [symbols, setSymbols] = useState([])
 
-	const [from, setFrom] = useState("")
+	const [from, setFrom] = useState("EUR")
 	const [to, setTo] = useState("")
 
 	var myHeaders = new Headers();
@@ -47,14 +48,44 @@ export default function ExchangeRates({ navigation }) {
 
 	return (
 		<View style={styles.container}>
-			<Text>Hiiee!</Text>
+
+			
 
 			<MyGenericButton
 				function={deez}
 				text="Print symbols"
 			/>
+			<Text>From: {from}</Text>
+			<Picker style={{ width: 200 }}
+				selectedValue={from}
+				onValueChange={(itemValue, itemIndex) =>
+					setFrom(itemValue)
+				}>
 
-			<FlatList style={{ width: 200 }}
+				{/* This from ChatGPT */}
+				{Object.entries(symbols).map(([key, value]) =>
+					<Item label={value} value={key} />
+				)}
+			</Picker>
+
+			<Text>To: {to}</Text>
+			<Picker style={{ width: 200 }}
+				selectedValue={to}
+				onValueChange={(itemValue, itemIndex) =>
+					setTo(itemValue)
+				}>
+
+				{/* This from ChatGPT */}
+				{Object.entries(symbols).map(([key, value]) =>
+					<Item label={value} value={key} />
+				)}
+			</Picker>
+
+			{/* marcodt89 on Aug 22, 2019, https://stackoverflow.com/questions/57604947/how-to-assign-items-to-picker-getting-a-list-of-data-as-a-response-in-the-form-o
+			"How to assign Items to picker getting a list of data as a response in the form of an array?" */}
+			{/* {symbols.map((item) => <Item label={item} value={item} />)} */}
+
+			{/* <FlatList style={{ width: 200 }}
 				data={Object.keys(symbols)}
 				renderItem={({ item }) =>
 					<View style={styles.margin1}>
@@ -63,7 +94,7 @@ export default function ExchangeRates({ navigation }) {
 						</Text>
 					</View>
 				}
-			/>
+			/> */}
 
 
 		</View>
