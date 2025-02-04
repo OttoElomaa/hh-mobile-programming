@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 
 
@@ -58,6 +59,14 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		backgroundColor: "#f0f0f0"
 	},
+
+	myPicker: {
+		borderWidth:1,
+		borderRadius:10,
+		borderColor:"#575959",
+		borderStyle:"solid",
+		width: 200
+	}
 });
 
 export default styles; 
