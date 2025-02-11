@@ -29,10 +29,11 @@ export default function ExchangeRates({ navigation }) {
 	const convert = () => {
 		fetch(`https://api.apilayer.com/exchangerates_data/convert?to=${to}&from=${from}&amount=${amount}`, requestOptions)
 			.then(response => response.text())
-			.then(result => {
-				console.log(result)
+			.then(data => {
+				console.log(data)
+				console.log(data.result)
 				console.log({from})
-				setResult(result)
+				setResult(data.result)
 			}
 				
 			)
@@ -73,7 +74,7 @@ export default function ExchangeRates({ navigation }) {
 
 					{/* This from ChatGPT */}
 					{Object.entries(symbols).map(([key, value]) =>
-						<Item label={value} value={key} />
+						<Picker.Item label={String(value)} value={String(key)} />
 					)}
 				</Picker>
 			</View>
@@ -88,7 +89,7 @@ export default function ExchangeRates({ navigation }) {
 
 					{/* This from ChatGPT */}
 					{Object.entries(symbols).map(([key, value]) =>
-						<Item label={value} value={key} />
+						<Picker.Item label={String(value)} value={String(key)} />
 					)}
 				</Picker>
 			</View>
@@ -99,7 +100,7 @@ export default function ExchangeRates({ navigation }) {
 			/>
 
 			<Text>Result:</Text>
-			<Text>{result.result}</Text>
+			<Text>{result}</Text>
 
 			{/* marcodt89 on Aug 22, 2019, https://stackoverflow.com/questions/57604947/how-to-assign-items-to-picker-getting-a-list-of-data-as-a-response-in-the-form-o
 			"How to assign Items to picker getting a list of data as a response in the form of an array?" */}

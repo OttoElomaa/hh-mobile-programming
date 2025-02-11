@@ -28,7 +28,7 @@ export default function GuessNumber({ navigation }) {
 
 	return (
 
-		<SafeAreaView style={styles.container}>
+		<View style={styles.container}>
 
 			<TextInput style={[styles.myInputField, styles.margin1]}
 				placeholder="Guess the number"
@@ -50,6 +50,6 @@ export default function GuessNumber({ navigation }) {
 			<Text>The correct answer is {solution}</Text> */}
 			<Text>{text}</Text>
 
-		</SafeAreaView>
+		</View>
 	)
 }

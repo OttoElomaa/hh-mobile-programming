@@ -15,6 +15,8 @@ import { _View, View } from 'react-native';
 import FetchFoods from './components/FetchFoods';
 import ExchangeRates from './components/ExchangeRates';
 
+import MapApp from './components/MapApp';
+
 
 export default function App() {
 
@@ -35,6 +37,8 @@ export default function App() {
 				<Stack.Screen name="Guess" component={GuessNumber} />
 				<Stack.Screen name="Foods" component={FetchFoods} />
 				<Stack.Screen name="MoneyRates" component={ExchangeRates} />
+
+				<Stack.Screen name="MapApp" component={MapApp} />
 			</Stack.Navigator>
 
 		</NavigationContainer>
