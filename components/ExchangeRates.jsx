@@ -28,11 +28,10 @@ export default function ExchangeRates({ navigation }) {
 
 	const convert = () => {
 		fetch(`https://api.apilayer.com/exchangerates_data/convert?to=${to}&from=${from}&amount=${amount}`, requestOptions)
-			.then(response => response.text())
+			.then(response => response.json())
 			.then(data => {
 				console.log(data)
 				console.log(data.result)
-				console.log({from})
 				setResult(data.result)
 			}
 				
